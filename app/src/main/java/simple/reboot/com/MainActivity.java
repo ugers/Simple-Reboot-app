@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String SHUTDOWN = "reboot -p";
     private static final String REBOOT_CMD = "reboot";
     private static final String REBOOT_SOFT_REBOOT_CMD = "setprop ctl.restart zygote";
-    private static final String REBOOT_RECOVERY_CMD = "reboot recovery";
-    private static final String REBOOT_BOOTLOADER_CMD = "reboot bootloader";
+    private static final String REBOOT_RECOVERY_CMD = "echo -n boot-recovery | busybox dd of=/dev/block/nandf count=1 conv=sync; sync; reboot";    private static final String REBOOT_BOOTLOADER_CMD = "reboot bootloader";
     private static final String[] REBOOT_SAFE_MODE
             = new String[]{"setprop persist.sys.safemode 1", REBOOT_SOFT_REBOOT_CMD};
     private static final String PLAY_STORE_MY_APPS
